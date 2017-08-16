@@ -1,0 +1,204 @@
+//BABA ka CALCULATOR
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.lang.*;
+public class Calculator implements ActionListener{
+    private JTextField a1;
+    private JButton n1,n2,n3,n4,n5,b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,bd,b11,b12;
+    private JButton bd1;
+    private JButton bd12=new JButton("OK");
+    private JDialog bd1dl;
+    private JLabel bd1lb;
+    int op;
+    double a,b,s;
+    public void Hw(JFrame m){
+        a1=new JTextField();
+        n1=new JButton("+");
+        n2=new JButton("-");
+        n3=new JButton("*");
+        n4=new JButton("/");
+        n5=new JButton("=");
+        b0=new JButton("0");
+        b1=new JButton("1");
+        b2=new JButton("2");
+        b3=new JButton("3");
+        b4=new JButton("4");
+        b5=new JButton("5");
+        b6=new JButton("6");
+        b7=new JButton("7");
+        b8=new JButton("8");
+        b9=new JButton("9");
+        b10=new JButton("C");
+        bd=new JButton(".");
+        b11=new JButton("SQRT");
+        b12=new JButton("SQR");
+        bd1=new JButton("Help ?");
+        n1.addActionListener(this);
+        n2.addActionListener(this);
+        n3.addActionListener(this);
+        n4.addActionListener(this);
+        n5.addActionListener(this);
+        b0.addActionListener(this);
+        b1.addActionListener(this);
+        b2.addActionListener(this);
+        b3.addActionListener(this);
+        b4.addActionListener(this);
+        b5.addActionListener(this);
+        b6.addActionListener(this);
+        b7.addActionListener(this);
+        b8.addActionListener(this);
+        b9.addActionListener(this);
+        b10.addActionListener(this);
+        bd.addActionListener(this);
+        b11.addActionListener(this);
+        b12.addActionListener(this);
+        bd1.addActionListener(this);
+        m.setLayout(null);
+        a1.setBounds(5, 5, 272, 40);
+        n1.setBounds(5, 50, 60, 60);
+        n2.setBounds(75, 50, 60, 60);
+        n3.setBounds(145, 50, 60, 60);
+        n4.setBounds(215, 50, 60, 60);
+        b0.setBounds(5, 120, 60, 60);
+        b1.setBounds(75, 120, 60, 60);
+        b2.setBounds(145, 120, 60, 60);
+        b3.setBounds(215, 120, 60, 60);
+        b4.setBounds(5, 190, 60, 60);
+        b5.setBounds(75, 190, 60, 60);
+        b6.setBounds(145, 190, 60, 60);
+        b7.setBounds(215, 190, 60, 60);
+        b8.setBounds(5, 260, 60, 60);
+        b9.setBounds(75, 260, 60, 60);
+        bd.setBounds(145, 260, 60, 60);
+        n5.setBounds(215, 260, 60, 60);
+        b10.setBounds(15, 340, 70, 40);
+        b11.setBounds(110, 340, 70, 40);
+        b12.setBounds(200, 340, 70, 40);
+        bd1.setBounds(5, 390, 270, 30);
+        m.add(a1);
+        m.add(n1);
+        m.add(n2);
+        m.add(n3);
+        m.add(n4);
+        m.add(n4);
+        m.add(n5);
+        m.add(b0);
+        m.add(b1);
+        m.add(b2);
+        m.add(b3);
+        m.add(b4);
+        m.add(b5);
+        m.add(b6);
+        m.add(b7);
+        m.add(b8);
+        m.add(b9);
+        m.add(b10);
+        m.add(bd);
+        m.add(b11);
+        m.add(b12);
+        m.add(bd1);
+    }
+            public void actionPerformed(ActionEvent e){
+            if(e.getSource()==bd1){
+                bd1dl=new JDialog();
+                bd1lb=new JLabel("Press C for Cancel\n Press SQRT for square root\n Press SQR for Square");
+                bd1dl.setTitle("Help ?");
+                bd1dl.setLayout(null);
+                bd12.setBounds(210, 95, 70, 35);
+                bd1lb.setBounds(5, 5, 490, 120);
+                bd1dl.add(bd12);
+                bd1dl.add(bd1lb);
+                bd12.addActionListener(this);
+                bd1dl.setSize(500,180);
+                bd1dl.setVisible(true);
+                bd1dl.setDefaultCloseOperation(JDialog.EXIT_ON_CLOSE);
+            }if(e.getSource()==bd12){
+                bd1dl.setVisible(false);
+            }
+            if(e.getSource()==b0){
+                a1.setText(a1.getText().concat("0"));
+            }if(e.getSource()==b1){
+                a1.setText(a1.getText().concat("1"));
+            }if(e.getSource()==b2){
+                a1.setText(a1.getText().concat("2"));
+            }if(e.getSource()==b3){
+                a1.setText(a1.getText().concat("3"));
+            }if(e.getSource()==b4){
+                a1.setText(a1.getText().concat("4"));
+            }if(e.getSource()==b5){
+                a1.setText(a1.getText().concat("5"));
+            }if(e.getSource()==b6){
+                a1.setText(a1.getText().concat("6"));
+            }if(e.getSource()==b7){
+                a1.setText(a1.getText().concat("7"));
+            }if(e.getSource()==b8){
+                a1.setText(a1.getText().concat("8"));
+            }if(e.getSource()==b9){
+                a1.setText(a1.getText().concat("9"));
+        }
+            if(e.getSource()==bd){
+                a1.setText(a1.getText().concat("."));
+            }
+        if(e.getSource()==b10){
+            a1.setText("");
+        }
+        if(e.getSource()==n1){
+             op=1;
+             a=Double.parseDouble(a1.getText());
+             a1.setText("");
+        }
+        if(e.getSource()==n2){
+             op=2;
+             a=Double.parseDouble(a1.getText());
+             a1.setText("");
+        }
+        if(e.getSource()==n3){
+             op=3;
+             a=Double.parseDouble(a1.getText());
+             a1.setText("");
+        }
+        if(e.getSource()==n4){
+             op=4;
+             a=Double.parseDouble(a1.getText());
+             a1.setText("");
+        }
+        if(e.getSource()==b11){
+            a=Double.parseDouble(a1.getText());
+            s=Math.sqrt(a);
+            a1.setText(" "+s);
+        }if(e.getSource()==b12){
+            a=Double.parseDouble(a1.getText());
+            s=a*a;
+            a1.setText(" "+s); 
+        }
+        if(e.getSource()==n5){
+            b=Double.parseDouble(a1.getText());
+             switch(op){
+                 case 1:
+                  s=a+b;
+                  break;
+                 case 2:
+                  s=a-b;
+                  break;
+                  case 3:
+                  s=a*b;
+                  break;
+                  case 4:
+                  s=a/b;
+                  break;
+                  default :
+                  System.out.println("Invalid Input");  
+             }
+             a1.setText(" "+s);
+        }
+        }
+    public static void main(String[]args){
+        Calculator n=new Calculator();
+        JFrame j=new JFrame("HelloWorld");
+        n.Hw(j);
+        j.setSize(300,478);
+        j.setVisible(true);
+        j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+}
+}
